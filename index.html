@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>菜单搜索器 | Web 开发技术</title>
+  <meta name="description" content="Web 开发技术 Lesson 2 作业 —— 菜单搜索器（HTML + CSS + JS）">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ 顶部：品牌 + 搜索框 ============ -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🍜</span>
+        <div class="brand-text">
+          <h1>食光小馆 · 菜单</h1>
+          <p>今日供应 <strong id="totalCount">0</strong> 道</p>
+        </div>
+      </div>
+
+      <form class="search" role="search" onsubmit="return false;">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input
+          id="searchInput"
+          class="search-input"
+          type="search"
+          placeholder="搜索菜名、口味或食材…"
+          autocomplete="off"
+          aria-label="搜索菜品"
+          aria-describedby="resultText">
+        <button id="clearBtn" class="search-clear" type="button" hidden aria-label="清空搜索">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <line x1="7" y1="7" x2="17" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="17" y1="7" x2="7" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <kbd class="search-kbd">/</kbd>
+      </form>
+    </div>
+  </header>
+
+  <!-- ============ 分类标签栏 ============ -->
+  <nav class="cats" aria-label="菜品分类">
+    <div class="wrap cats-inner" id="categoryBar"></div>
+  </nav>
+
+  <!-- ============ 主体：结果条 + 菜品列表 ============ -->
+  <main class="wrap main">
+    <div class="result-bar">
+      <p id="resultText" class="result-text" aria-live="polite">正在加载菜单…</p>
+      <button id="resetBtn" class="btn-reset" type="button" hidden>清除筛选</button>
+    </div>
+
+    <ul id="menuList" class="menu-list"></ul>
+
+    <div id="emptyState" class="empty" hidden>
+      <div class="empty-icon" aria-hidden="true">🍽️</div>
+      <h2>没有找到相关菜品</h2>
+      <p>换个关键词试试，比如「鱼」「辣」「豆腐」</p>
+      <button id="emptyReset" class="btn-primary" type="button">查看全部菜品</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Web 开发技术 · Lesson 2 作业 —— 菜单搜索器</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
